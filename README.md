@@ -272,6 +272,3 @@ El backend todavía no configura CORS ni implementa autenticación propia. Si un
 
 Este repositorio contiene el backend NestJS. Vercel está configurado para desplegar el frontend del proyecto por separado; no se debe confundir esa publicación con el servidor de esta API. Para producción, despliega el backend en un servicio compatible con Node.js, configura PostgreSQL y define las variables de entorno allí. SQLite local no es apropiado para un entorno serverless con almacenamiento efímero.
 
-## Licencia
-
-Proyecto académico privado (`UNLICENSED`).
