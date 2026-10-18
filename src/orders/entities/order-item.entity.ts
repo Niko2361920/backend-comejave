@@ -4,6 +4,7 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryGeneratedColumn,
+  type Relation,
 } from 'typeorm';
 import { Order } from './order.entity';
 import { Product } from '../../products/entities/product.entity';
@@ -17,7 +18,7 @@ export class OrderItem {
   // onDelete CASCADE: al borrar la orden se borran sus items
   @ManyToOne(() => Order, (order) => order.items, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'orderId' })
-  order!: Order;
+  order!: Relation<Order>;
 
   @Column({ type: 'varchar' })
   orderId!: string;
@@ -26,7 +27,7 @@ export class OrderItem {
   // eager:true carga el producto automáticamente al hacer find de OrderItem (didáctico)
   @ManyToOne(() => Product, { eager: true, onDelete: 'RESTRICT' })
   @JoinColumn({ name: 'productId' })
-  product!: Product;
+  product!: Relation<Product>;
 
   @Column({ type: 'varchar' })
   productId!: string;

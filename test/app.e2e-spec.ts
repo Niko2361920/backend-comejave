@@ -20,7 +20,17 @@ describe('AppController (e2e)', () => {
     return request(app.getHttpServer())
       .get('/')
       .expect(200)
-      .expect('Hello World!');
+      .expect({
+        app: 'Come Jave Backend',
+        status: 'online',
+        version: '1.0.0',
+        message: 'API lista para manejar usuarios, productos y pedidos.',
+        endpoints: {
+          users: '/users',
+          products: '/products',
+          orders: '/orders',
+        },
+      });
   });
 
   afterEach(async () => {
